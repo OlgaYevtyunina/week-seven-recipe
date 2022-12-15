@@ -1,4 +1,6 @@
-function MyRecipesComponent({label, image, calories, ingredients}){
+import checkImage from './check.png';
+
+function MyRecipesComponent({label, image,mealType, ingredients}){
     return(<div>
         <div className="container">
             <h2>{label}</h2>
@@ -10,13 +12,14 @@ function MyRecipesComponent({label, image, calories, ingredients}){
 
         <ul className="list">
         {ingredients.map((ingredient, index) => (
-            <li key={index}><img src="https://icons8.com/icons/set/check--static--cyan" alt="check" className="icons"/>{ingredient}</li>
+            <li key={index}><img src={checkImage} width="32px" alt="check" className="icon"/>{ingredient}</li>
         ))}
         </ul>
 
         <div className="container">
-            <p className="par">{calories.toFixed()} calories</p>
+            <p className="par">{mealType}</p>
         </div>
+
         </div>
     )
 }

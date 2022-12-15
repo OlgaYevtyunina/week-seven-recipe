@@ -10,7 +10,7 @@ const MY_KEY = "b4e8dd32de6d62c35d34fe818dc8f1f6";
 
 const [mySearch, setMySearch] = useState('');
 const [myRecipes, setMyRecipes] = useState([]);
-const [wordSubmitted, setWordSubmitted] = useState('avocado');
+const [wordSubmitted, setWordSubmitted] = useState('lamb');
 
 useEffect(()=>{
   const getRecipe = async ()=>{
@@ -40,24 +40,32 @@ const finalSearch = (e) =>{
     </div>
 
     <div className="container">
-    <form onSubmit={finalSearch}>
-      <input className="search" placeholder='Search...' onChange={myRecipeSearch} value={mySearch}></input>
-    </form>
+    <h3>Type your favorite ingredients</h3>
     </div>
 
     <div className="container">
-    <button>
-      <img className="icons" src="https://img.icons8.com/plasticine/512/search-more.png" alt=""/>
+      
+    <form onSubmit={finalSearch}>
+      <input className="search" placeholder='Search...' onChange={myRecipeSearch} value={mySearch}></input> 
+    </form>
+    <button onClick={finalSearch}>
+      <img className="iconSearch" src="https://img.icons8.com/plasticine/512/search-more.png" alt=""/>
     </button>
     </div>
+
+    {/* <div >
+    <button onClick={finalSearch}>
+      <img className="iconSearch" src="https://img.icons8.com/plasticine/512/search-more.png" width="32px" alt=""/>
+    </button>
+    </div> */}
 
 
     {myRecipes.map(element => (
       <MyRecipesComponent 
       label={element.recipe.label} 
       image={element.recipe.image} 
-      calories={element.recipe.calories}
-      ingredients={element.recipe.ingridienLines}
+      mealType={element.recipe.mealType}
+      ingredients={element.recipe.ingredientLines}
       />
     ))}
     </div>
