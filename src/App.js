@@ -60,8 +60,8 @@ const finalSearch = (e) =>{
     </div> */}
 
 
-    {myRecipes.map(element => (
-      <MyRecipesComponent 
+    {myRecipes.map((element,id) => (
+      <MyRecipesComponent key={id}
       label={element.recipe.label} 
       image={element.recipe.image} 
       mealType={element.recipe.mealType}
